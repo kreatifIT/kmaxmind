@@ -1,0 +1,19 @@
+package: kmaxmind
+version: '1.0.0'
+author: 'Kreatif'
+debug: 0
+compile: 0
+
+requires:
+    php:
+        version: '>=7, <9'
+
+page:
+    title: MaxMind GeoIP
+    icon: rex-icon rex-icon-package-addon
+    perm: kmaxmind[]
+    subpages:
+        settings:
+            title: 'translate:settings'
+            icon: rex-icon fa-sliders
+            perm: kmaxmind[settings]
