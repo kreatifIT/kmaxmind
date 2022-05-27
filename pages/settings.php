@@ -19,6 +19,9 @@ $field->setLabel('MaxMind Account-ID');
 $field = $form->addTextField('license_key', null, ["class" => "form-control"]);
 $field->setLabel('MaxMind License key');
 
+$field = $form->addTextField('cache_expiration_time', null, ["class" => "form-control", "type" => "number", 'placeholder' => 3600]);
+$field->setLabel('Cache Ablaufzeit ( in Sekunden, Standard = 3600 )');
+
 $formOutput = $form->get();
 
 $fragment = new rex_fragment();

@@ -1,0 +1,26 @@
+{
+  "{{TABLE_PREFIX}}maxmind_country": {
+    "table": {
+      "id": "7",
+      "status": "1",
+      "table_name": "{{TABLE_PREFIX}}maxmind_country_cache",
+      "name": "MaxMind Country Cache",
+      "description": "MaxMind Country Cache Tabelle",
+      "list_amount": "50",
+      "list_sortfield": "id",
+      "list_sortorder": "DESC",
+      "prio": "9999",
+      "search": "0",
+      "hidden": "1",
+      "add_new": "0",
+      "export": "0",
+      "import": "0",
+      "mass_deletion": "0",
+      "mass_edit": "0",
+      "schema_overwrite": "1",
+      "history": "0"
+    },
+    "fields": [
+    ]
+  }
+}

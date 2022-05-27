@@ -10,3 +10,7 @@
  */
 
 namespace Kreatif\kmaxmind;
+
+use Kreatif\kmaxmind\lib\Extensions;
+
+Extensions::init();
