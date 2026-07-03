@@ -12,6 +12,7 @@
 namespace Kreatif\kmaxmind;
 
 use rex_path;
+use GeoIp2\Exception\GeoIp2Exception;
 use GeoIp2\WebService\Client;
 
 
@@ -38,8 +39,16 @@ class GeoIP
         if ($foundCountry) {
             return $foundCountry->getValue('isocode_a2');
         } else {
-            $client   = new Client(Settings::getValue('account_id'), Settings::getValue('license_key')); //116063
-            $response = $client->country($ip);
+            $client = new Client(Settings::getValue('account_id'), Settings::getValue('license_key')); //116063
+
+            try {
+                $response = $client->country($ip);
+            } catch (GeoIp2Exception $ex) {
+                // z.B. AddressNotFoundException fuer private/reservierte IPs
+                // (lokale Entwicklung, interne Healthchecks) - kein harter Fehler
+                return null;
+            }
+
             if ($response->country && $response->country->isoCode) {
                 $country = Country::create();
                 $country->setValue('ip', $ip);
